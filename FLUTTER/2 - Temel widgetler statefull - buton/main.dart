@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hello_word/image_widgets.dart';
 
+import 'dropdown_button_kullanimi.dart';
 import 'my_counter_page.dart';
+import 'popUpMenu.dart';
 import 'temel_buton_turleri.dart';
 
 void main() {
@@ -33,9 +35,10 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Image Örnekleri'),
+          title: Text('Buton Örnekleri'),
+          actions: [PopupmenuKullanimi()],
         ),
-        body: DropDownButtonKullanimi(),
+        body: PopupmenuKullanimi(),
       ),
     );
   }
