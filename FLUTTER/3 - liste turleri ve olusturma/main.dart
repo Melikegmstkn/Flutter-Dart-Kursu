@@ -3,6 +3,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 import 'card_listtile.dart';
 import 'custom_scroll_ve_slivers.dart';
+import 'grid_view_kullanimi.dart';
 import 'listview_kullanimi.dart';
 import 'listview_layout_problemleri.dart';
 
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
-      home: ListviewLayoutProblemleri(),
+      home: GridViewOrnek(),
       builder: EasyLoading.init(),
     );
   }
