@@ -93,12 +93,13 @@ class ListViewKullanimi extends StatelessWidget {
             content: SingleChildScrollView(
                 child: ListBody(
               children: [
-                Text('emre' * 100),
-                Text('emre1' * 100),
-                Text('emre2' * 100),
+                Text('melike' * 100),
+                Text('melike1' * 100),
+                Text('melike2' * 100),
               ],
             )),
             actions: [
+              //actions içinde butonları olan liste
               ButtonBar(
                 children: [
                   TextButton(
@@ -128,6 +129,6 @@ class Ogrenci {
 
   @override
   String toString() {
-    return 'Isim : $isim Soyisim:$soyisim id:$id';
+    return 'Isim : $isim Soyisim : $soyisim id : $id';
   }
 }
