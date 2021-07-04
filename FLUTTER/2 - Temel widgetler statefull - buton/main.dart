@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('Image Örnekleri'),
         ),
-        body: TemelButonlar(),
+        body: DropDownButtonKullanimi(),
       ),
     );
   }
