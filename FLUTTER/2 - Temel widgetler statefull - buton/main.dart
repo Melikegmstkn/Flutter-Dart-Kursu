@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text('Buton Örnekleri'),
-          actions: [PopupmenuKullanimi()],
+          actions: [PopupmenuKullanimi()], //pop up menu app barda da kullanılıyor
         ),
         body: PopupmenuKullanimi(),
       ),
