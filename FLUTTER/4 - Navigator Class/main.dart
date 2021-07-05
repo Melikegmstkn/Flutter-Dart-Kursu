@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'green_page.dart';
+import 'orange_page.dart';
 import 'red_page.dart';
 
 void main() => runApp(MyApp());
@@ -10,7 +12,23 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
-      home: AnaSayfa(),
+      //home: AnaSayfa(), //->routede kullanıldığı için burdaki hata verir
+      routes: {
+        '/redPage': (context) => RedPage(),
+        //'/ogrenciDetay' : (context)=>OgrenciDetay(),
+        '/': (context) => AnaSayfa(),
+        '/orangePage': (context) => OrangePage(),
+      },
+      //sayfa bulunamazsa hata verir
+      onUnknownRoute: (settings) => MaterialPageRoute(
+          builder: (context) => Scaffold(
+                appBar: AppBar(
+                  title: Text('Error'),
+                ),
+                body: Center(
+                  child: Text('404'),
+                ),
+              )),
     );
   }
 }
@@ -87,6 +105,14 @@ class AnaSayfa extends StatelessWidget {
             },
             style: ElevatedButton.styleFrom(primary: Colors.red.shade600),
             child: Text('Push Replacament Kullanımı'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              // Navigator.of(context).pushNamed(routeName);
+              Navigator.pushNamed(context, '/orangePage');
+            },
+            style: ElevatedButton.styleFrom(primary: Colors.blue.shade600),
+            child: Text('PushNamed Kullanımı'),
           ),
         ],
       )),
