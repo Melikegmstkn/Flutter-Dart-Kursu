@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'green_page.dart';
 import 'red_page.dart';
 
 void main() => runApp(MyApp());
@@ -35,7 +36,7 @@ class AnaSayfa extends StatelessWidget {
               );
               print('Ana sayfadaki sayı $_gelenSayi');
             },
-            /* //random sayı beklemeyen hali
+            /*
             onPressed: ()  {
               Navigator.push(
                 context,
@@ -58,9 +59,37 @@ class AnaSayfa extends StatelessWidget {
             style: ElevatedButton.styleFrom(primary: Colors.red.shade600),
             child: Text('Kırmızı Sayfaya Gir Android'),
           ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).maybePop();
+              //maybePop -> öncesinde açılmış bi sayfa varsa o sayfaya gider yoksa uygulamayı aşağı alır
+            },
+            style: ElevatedButton.styleFrom(primary: Colors.grey),
+            child: Text('Maybe Pop Kullanımı'),
+          ),
+          ElevatedButton(
+            //can Pop maybe Pop gibi ama kontrollu. yani öncesinde sayfa var mı kontrol eder varsa işlem yapar
+            onPressed: () {
+              if (Navigator.canPop(context)) {
+                print("evet pop olabilir");
+              } else
+                print('hayır olamaz');
+            },
+            style: ElevatedButton.styleFrom(primary: Colors.blueAccent),
+            child: Text('Can Pop Kullanımı'),
+          ),
+          ElevatedButton(
+            //stackteki son sayfa olur burdan çıkış yok. hesaptan çıkış işlerinde kullanılabilir
+            onPressed: () {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => GreenPage()),
+              );
+            },
+            style: ElevatedButton.styleFrom(primary: Colors.red.shade600),
+            child: Text('Push Replacament Kullanımı'),
+          ),
         ],
       )),
     );
   }
 }
-

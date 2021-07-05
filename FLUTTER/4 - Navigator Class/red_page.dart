@@ -7,6 +7,7 @@ class RedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
+      //-> appBardaki geri tuşunun işlevi (true/false)
       onWillPop: () {
         print('on will pop calıstı');
 
@@ -39,6 +40,24 @@ class RedPage extends StatelessWidget {
                       .pop<int>(_rastgeleSayi); //pop(randSayı yı gönderdik)
                 },
                 child: Text('Geri Dön'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).maybePop();
+                  //maybePop -> anasayfadan buraya gelindiği için anasayfaya gider
+                },
+                style: ElevatedButton.styleFrom(primary: Colors.red.shade600),
+                child: Text('Maybe Pop Kullanımı'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  if (Navigator.canPop(context)) {
+                    print("evet pop olabilir");
+                  } else
+                    print('hayır olamaz');
+                },
+                style: ElevatedButton.styleFrom(primary: Colors.red.shade600),
+                child: Text('Can Pop Kullanımı'),
               ),
             ],
           ),
