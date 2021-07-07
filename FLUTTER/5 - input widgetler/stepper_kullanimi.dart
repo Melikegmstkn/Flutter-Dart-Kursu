@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class StepperOrnek extends StatefulWidget {
+class StepperKullanimi extends StatefulWidget {
   @override
-  _StepperOrnekState createState() => _StepperOrnekState();
+  _StepperKullanimiState createState() => _StepperKullanimiState();
 }
 
 //adım adım ilerleme
-class _StepperOrnekState extends State<StepperOrnek> {
+class _StepperKullanimiState extends State<StepperKullanimi> {
   int _aktifStep = 0;
   String isim = '', mail = '', sifre = '';
   List<Step> tumStepler = [];
