@@ -165,7 +165,18 @@ class _DigerFormElemanlariState extends State<DigerFormElemanlari> {
             DropdownButton<String>(
               items: renkler.map((oankiRenk) {
                 return DropdownMenuItem<String>(
-                  child: Text(oankiRenk),
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                        width: 24,
+                        height: 24,
+                        color: renk(oankiRenk),
+                        margin: EdgeInsets.only(right: 10),
+                      ),
+                      Text(oankiRenk),
+                    ],
+                  ),
+                  //child: Text(oankiRenk),
                   value: oankiRenk,
                 );
               }).toList(),
@@ -194,5 +205,14 @@ class _DigerFormElemanlariState extends State<DigerFormElemanlari> {
         ),
       ),
     );
+  }
+
+  Color? renk(String oankiRenk) {
+    if (oankiRenk == "kırmızı")
+      return Colors.red;
+    else if (oankiRenk == "mor")
+      return Colors.purple;
+    else
+      return Colors.black;
   }
 }
