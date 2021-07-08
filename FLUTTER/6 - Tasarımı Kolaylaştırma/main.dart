@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'ana_sayfa.dart';
 import 'arama_sayfasi.dart';
 import 'drawer_inkwell_kullanimi.dart';
+import 'ekle.dart';
 import 'ozelFontKullanimi.dart';
 
 void main() {
@@ -39,11 +40,14 @@ class MyHomePageState extends State<MyHomePage> {
   late Anasayfa sayfaAna;
   late AramaSayfasi sayfaArama;
 
+  var keyAnaSayfa = PageStorageKey("key_ana_sayfa");
+  var keyArama = PageStorageKey("key_arama_sayfa");
+
   @override
   void initState() {
     super.initState();
-    sayfaAna = Anasayfa();
-    sayfaArama = AramaSayfasi();
+    sayfaAna = Anasayfa(keyAnaSayfa);
+    sayfaArama = AramaSayfasi(keyArama);
     tumSayfalar = [sayfaAna, sayfaArama];
   }
 
