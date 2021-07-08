@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'drawer_inkwell_kullanimi.dart';
 import 'ozelFontKullanimi.dart';
 
 void main() {
@@ -16,7 +17,19 @@ class MyApp extends StatelessWidget {
         fontFamily: 'GenelYaziStili',
         primarySwatch: Colors.amber,
       ),
-      home: ozelFontKullanimi(),
+      home: MyHomePage(),
     );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return drawerKullanimi();
   }
 }
