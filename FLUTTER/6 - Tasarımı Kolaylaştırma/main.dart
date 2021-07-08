@@ -30,6 +30,13 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return drawerKullanimi();
+    return Scaffold(
+      //drawer -> sabit menü
+      drawer: drawerKullanimi(),
+      appBar: AppBar(
+        title: Text("Flutter Dersleri"),
+      ),
+      body: ozelFontKullanimi(),
+    );
   }
 }
