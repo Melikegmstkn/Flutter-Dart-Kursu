@@ -5,6 +5,7 @@ import 'arama_sayfasi.dart';
 import 'drawer_inkwell_kullanimi.dart';
 import 'ekle.dart';
 import 'ozelFontKullanimi.dart';
+import 'page_view.dart';
 
 void main() {
   runApp(MyApp());
@@ -59,9 +60,10 @@ class MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text("Flutter Dersleri"),
       ),
-      body: secilenMenuItem <= tumSayfalar.length - 1
-          ? tumSayfalar[secilenMenuItem]
-          : tumSayfalar[secilenMenuItem],
+      body: PageViewOrnek(),
+      // secilenMenuItem <= tumSayfalar.length - 1
+      //     ? tumSayfalar[secilenMenuItem]
+      //     : tumSayfalar[secilenMenuItem],
       bottomNavigationBar: bottomNavMenu(),
     );
   }
