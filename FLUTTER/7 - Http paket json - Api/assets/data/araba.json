@@ -1,0 +1,55 @@
+[
+  {
+    "arabaAdi": "TOGG",
+    "ulke" : "Türkiye",
+    "kurulusTarihi": 1910,
+    "model" : [
+      {
+        "modelAdi": "C-SUV",
+        "fiyat" : 130000,
+        "benzinli" : false,
+      },
+      {
+        "modelAdi": "C-Sedan",
+        "fiyat" : 12500,
+        "benzinli" : false,
+      }
+    ]
+  },
+
+  {
+    "arabaAdi": "Mercedes",
+    "ulke" : "Almanya",
+    "kurulusTarihi": 1890,
+    "model" : [
+      {
+        "modelAdi": "A Serisi",
+        "fiyat" : 15000,
+        "benzinli" : false
+      },
+      {
+        "modelAdi": "C Serisi",
+        "fiyat" : 25000,
+        "benzinli" : true
+      }
+    ]
+  },
+
+  {
+    "arabaAdi": "Honda",
+    "ulke" : "Japonya",
+    "kurulusTarihi": 1920,
+    "model" : [
+      {
+        "modelAdi": "Civic Serisi",
+        "fiyat" : 12000,
+        "benzinli" : true
+      },
+      {
+        "modelAdi": "Jazz Serisi",
+        "fiyat" : 10000,
+        "benzinli" : false
+      }
+    ]
+  }
+]

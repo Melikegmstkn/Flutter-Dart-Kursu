@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'local_json.dart';
+import 'ogrenciJson.dart';
 import 'remote_app.dart';
 
 void main() {
@@ -11,6 +12,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      home: MyHomePage(),
+    );
+
     /*
     Ogrenci melike = Ogrenci(21, "melike");
     debugPrint(melike.toString());
@@ -23,13 +29,46 @@ class MyApp extends StatelessWidget {
     Ogrenci o = Ogrenci.fromMap(oznurMap);
     debugPrint(o.toString());
     */
+  }
+}
 
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+class MyHomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Json ve Api"),
       ),
-      home: LocalJsonKullanimi(),
+      body: Center(
+        child: Column(
+          children: <Widget>[
+            RaisedButton(
+              child: Text("Local Json"),
+              color: Colors.green,
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => LocalJsonKullanimi()));
+              },
+            ),
+            RaisedButton(
+              child: Text("Remote Api"),
+              color: Colors.orangeAccent,
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => RemoteApiKullanimi()));
+              },
+            ),
+            RaisedButton(
+              child: Text("Json Orenci Verileri"),
+              color: Colors.deepPurpleAccent,
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => OgrenciJsonVerileri()));
+              },
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
