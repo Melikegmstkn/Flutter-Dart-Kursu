@@ -59,7 +59,7 @@ class MyHomePage extends StatelessWidget {
               },
             ),
             RaisedButton(
-              child: Text("Json Orenci Verileri"),
+              child: Text("Json Ogrenci Verileri"),
               color: Colors.deepPurpleAccent,
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
