@@ -1,0 +1,41 @@
+[
+  {
+    "ogrenciAdi" : "Melike",
+    "ogrenciNo" : "1822120005",
+    "okul": "Ondokuz Mayıs Üniversitesi",
+    "bolum": "Bilgisayaar Mühendisliği"
+  },
+
+  {
+    "ogrenciAdi" : "Neslihan",
+    "ogrenciNo" : "20601940",
+    "okul": "Arel Üniversitesi",
+    "bolum": "Hemşirelik"
+  },
+  {
+    "ogrenciAdi" : "Melike",
+    "ogrenciNo" : "1822120005",
+    "okul": "Ondokuz Mayıs Üniversitesi",
+    "bolum": "Bilgisayaar Mühendisliği"
+  },
+
+  {
+    "ogrenciAdi" : "Neslihan",
+    "ogrenciNo" : "20601940",
+    "okul": "Arel Üniversitesi",
+    "bolum": "Hemşirelik"
+  },
+  {
+    "ogrenciAdi" : "Melike",
+    "ogrenciNo" : "1822120005",
+    "okul": "Ondokuz Mayıs Üniversitesi",
+    "bolum": "Bilgisayaar Mühendisliği"
+  },
+
+  {
+    "ogrenciAdi" : "Neslihan",
+    "ogrenciNo" : "20601940",
+    "okul": "Arel Üniversitesi",
+    "bolum": "Hemşirelik"
+  }
+]
