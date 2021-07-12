@@ -19,8 +19,8 @@ class _SqllifeIslemleriState extends State<SqllifeIslemleri> {
   var _textController = TextEditingController();
   var _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  int? tiklanilanOgrenciIndexi;
-  int? tiklanilanOgrenciID;
+  int? tiklananOgrenciIndexi;
+  int? tiklananOgrenciID;
 
   @override
   void initState() {
@@ -101,24 +101,26 @@ class _SqllifeIslemleriState extends State<SqllifeIslemleri> {
                     RaisedButton(
                       child: Text("Güncelle"),
                       color: Colors.blue,
-                      onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          _ogrenciGuncelle(
-                            Ogrenci.withId(
-                              tiklanilanOgrenciID,
-                              _textController.text,
-                              aktifMi == true ? 1 : 0,
-                            ),
-                          );
-                        }
-                      },
+                      onPressed: tiklananOgrenciID == null
+                          ? null
+                          : () {
+                              if (_formKey.currentState!.validate()) {
+                                _ogrenciGuncelle(
+                                  Ogrenci.withId(
+                                    tiklananOgrenciID,
+                                    _textController.text,
+                                    aktifMi == true ? 1 : 0,
+                                  ),
+                                );
+                              }
+                            },
                     ),
                     RaisedButton(
                       child: Text("Tüm Tabloyu Sil"),
                       color: Colors.red,
                       onPressed: () {
                         _tumTabloyuTemizle();
-                        tiklanilanOgrenciIndexi = null;
+                        tiklananOgrenciIndexi = null;
                       },
                     ),
                   ],
@@ -138,8 +140,8 @@ class _SqllifeIslemleriState extends State<SqllifeIslemleri> {
                               aktifMi = tumOgrencilerListesi![index].aktif == 1
                                   ? true
                                   : false;
-                              tiklanilanOgrenciIndexi = index;
-                              tiklanilanOgrenciID =
+                              tiklananOgrenciIndexi = index;
+                              tiklananOgrenciID =
                                   tumOgrencilerListesi![index].id;
                             });
                           },
@@ -165,8 +167,8 @@ class _SqllifeIslemleriState extends State<SqllifeIslemleri> {
                             onPressed: () {
                               _ogrenciSil(
                                   tumOgrencilerListesi![index].id, index);
-                              if (index == tiklanilanOgrenciIndexi) {
-                                tiklanilanOgrenciIndexi = null;
+                              if (index == tiklananOgrenciIndexi) {
+                                tiklananOgrenciIndexi = null;
                               }
                             },
                             icon: Icon(
@@ -185,23 +187,6 @@ class _SqllifeIslemleriState extends State<SqllifeIslemleri> {
             ),
           ),
         ),
-      ),
-    );
-  }
-
-  IconButton iconDelete(int index) {
-    return IconButton(
-      onPressed: () {
-        _ogrenciSil(tumOgrencilerListesi![index].id, index);
-        // tıklanınlan eleman silindiyse güncelle buton pasifleştirilir
-        if (index == tiklanilanOgrenciIndexi) {
-          tiklanilanOgrenciIndexi = null;
-        }
-      },
-      icon: Icon(
-        Icons.delete,
-        size: 30,
-        color: Colors.white,
       ),
     );
   }
@@ -269,6 +254,7 @@ class _SqllifeIslemleriState extends State<SqllifeIslemleri> {
         tumOgrencilerListesi!.clear();
       });
     }
+    tiklananOgrenciID = null;
   }
 
   Future<void> _ogrenciSil(
@@ -290,6 +276,8 @@ class _SqllifeIslemleriState extends State<SqllifeIslemleri> {
         duration: const Duration(seconds: 2),
       ));
     }
+
+    tiklananOgrenciID = null;
   }
 
   /*
@@ -326,7 +314,7 @@ class _SqllifeIslemleriState extends State<SqllifeIslemleri> {
       ));
 
       setState(() {
-        tumOgrencilerListesi![tiklanilanOgrenciIndexi!] = ogrenci;
+        tumOgrencilerListesi![tiklananOgrenciIndexi!] = ogrenci;
       });
     }
   }
