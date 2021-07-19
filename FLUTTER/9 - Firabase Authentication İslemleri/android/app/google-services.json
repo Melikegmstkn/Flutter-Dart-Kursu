@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "927878349918",
+    "project_id": "flutterfirebase-8a997",
+    "storage_bucket": "flutterfirebase-8a997.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:927878349918:android:f04f3f21e9863fc7f920cf",
+        "android_client_info": {
+          "package_name": "com.example.firebase_islemleri"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "927878349918-sh5045qsg6ph1r7t910be478mnmsas03.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA__hl_AfXbtsJESNeQL8DdokYH4_e4aM4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "927878349918-sh5045qsg6ph1r7t910be478mnmsas03.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

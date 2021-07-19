@@ -59,19 +59,16 @@ class _FirestoreIslemleriState extends State<FirestoreIslemleri> {
               color: Colors.brown,
               onPressed: _veriSorgula,
             ),
-            /*
             RaisedButton(
               child: Text("Galeriden Storagea Resim"),
               color: Colors.orange,
-              //onPressed: _galeriResimUpload,
+              onPressed: _galeriResimUpload,
             ),
-
-            RaisedButton(
-              child: Text("Kameradan Storagea Resim"),
-              color: Colors.purple,
-              //onPressed: _kameraResimUpload,
-            ),
-            */
+            // RaisedButton(
+            //   child: Text("Kameradan Storagea Resim"),
+            //   color: Colors.purple,
+            //   onPressed: _kameraResimUpload,
+            // ),
             Expanded(
               child: _secilenResim == null
                   ? Text("Resim YOK")
@@ -85,7 +82,7 @@ class _FirestoreIslemleriState extends State<FirestoreIslemleri> {
 
   void _veriEkle() {
     Map<String, dynamic> melikeEkle = Map();
-    melikeEkle['ad'] = "melike Güm";
+    melikeEkle['ad'] = "melike";
     melikeEkle['lisansMezunu'] = true;
     melikeEkle['lisansMezunu2'] = true;
     melikeEkle['lisansMezunu23'] = true;
@@ -94,7 +91,7 @@ class _FirestoreIslemleriState extends State<FirestoreIslemleri> {
 
     _firestore
         .collection("users")
-        .doc("melike_gmstkn")
+        .doc("melike")
         .set(
             melikeEkle,
             SetOptions(
@@ -272,42 +269,48 @@ class _FirestoreIslemleriState extends State<FirestoreIslemleri> {
     });
   }
 
-  /*
   void _galeriResimUpload() async {
-    var _picker = ImagePicker();
-    var resim = await _picker.getImage(source: ImageSource.gallery);
-    setState(() {
-      _secilenResim = resim!;
+    ImagePicker _picker = ImagePicker();
+
+    _picker.getImage(source: ImageSource.gallery).then((value) {
+      setState(() {
+        _secilenResim = value;
+      });
     });
 
-    StorageReference ref = FirebaseStorage.instance
+    var ref = FirebaseStorage.instance
         .ref()
         .child("user")
-        .child("emre")
-        .child("profil.png");
-    StorageUploadTask uploadTask = ref.putFile(File(_secilenResim!.path));
+        .child("nesli")
+        .child("nesli.png");
 
-    var url = await (await uploadTask.onComplete).ref.getDownloadURL();
+    TaskSnapshot uploadTask = await ref.putFile(File(_secilenResim!.path));
+
+    var url = await (await uploadTask).ref.getDownloadURL();
     debugPrint("upload edilen resmin urlsi : " + url);
   }
-
 
   void _kameraResimUpload() async {
-    var resim = await ImagePicker().getImage(source: ImageSource.camera);
+    Navigator.pop(context);
+    ImageSource imageFile = ImageSource.camera;
     setState(() {
-      _secilenResim = resim!;
+      _secilenResim = imageFile as PickedFile?;
     });
-
-    StorageReference ref = FirebaseStorage.instance
-        .ref()
-        .child("user")
-        .child("hasan")
-        .child("profil.png");
-    StorageUploadTask uploadTask = ref.putFile(File(_secilenResim!.path));
-
-    var url = await (await uploadTask.onComplete).ref.getDownloadURL();
-    debugPrint("upload edilen resmin urlsi : " + url);
+    // ImagePicker _picker = ImagePicker();
+    // _picker.getImage(source: ImageSource.camera).then((value) {
+    //   setState(() {
+    //     _secilenResim = value;
+    //   });
+    // });
+    // var ref = FirebaseStorage.instance
+    //     .ref()
+    //     .child("user")
+    //     .child("hasan")
+    //     .child("hasan.png");
+    //
+    // TaskSnapshot uploadTask = await ref.putFile(File(_secilenResim!.path));
+    //
+    // var url = await (await uploadTask).ref.getDownloadURL();
+    // debugPrint("upload edilen resmin urlsi : " + url);
   }
-  */
-
 }
