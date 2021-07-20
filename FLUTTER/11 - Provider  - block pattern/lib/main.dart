@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'auth_service.dart';
+import 'bloc_kullanimi.dart';
 import 'counter.dart';
 import 'sayac_with_provider.dart';
 import 'stream_kullanimi.dart';
@@ -75,6 +76,14 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: Text("Stream Kullanımı"),
               color: Colors.yellow,
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => BlocKullanimi()));
+              },
+              child: Text("Bloc Kullanımı"),
+              color: Colors.green,
             ),
           ],
         ),
